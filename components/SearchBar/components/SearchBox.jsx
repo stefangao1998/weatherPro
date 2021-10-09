@@ -6,7 +6,7 @@ import {
 } from "react-native";
 import {Icon} from '@ant-design/react-native';
 
-import CountryPicker from './CountryPicker';
+// import CountryPicker from './CountryPicker';
 import styles from './style.css';
 
 /** contains input text, and icons */
@@ -24,7 +24,7 @@ const SearchBox = (props) => {
 
   return (
     <View style={styles.searchBox}>
-      <CountryPicker chosenCountry={chosenCountry} setChosenCountry={setChosenCountry} chosenCountry={chosenCountry} setChosenCountry={setChosenCountry}/>
+      {/* <CountryPicker chosenCountry={chosenCountry} setChosenCountry={setChosenCountry} chosenCountry={chosenCountry} setChosenCountry={setChosenCountry}/> */}
       <Icon
         name={'search'}
         size={18}

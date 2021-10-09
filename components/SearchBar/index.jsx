@@ -19,7 +19,7 @@ const SearchBar = (props) => {
 
   return (
     <View style={styles.searchBarContainer}>
-      <Text style={styles.header}>{'Enter city, id or location'}</Text>
+      <Text style={styles.header}>{'Enter city or location'}</Text>
       <View style={styles.searchBarSection}>
         <SearchBox searchText={searchText} setSearchText={setSearchText} onSubmitEditing={onSubmitEditing} chosenCountry={chosenCountry} setChosenCountry={setChosenCountry}/>
         <CancelSection onCancel={onCancel}/>

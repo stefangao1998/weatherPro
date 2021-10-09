@@ -1,7 +1,8 @@
 import React, {useState} from 'react';
 import {Dimensions, View, ScrollView, TouchableOpacity} from 'react-native';
 import {connect} from 'umi';
-import {List, Modal, ActivityIndicator} from '@ant-design/react-native';
+import {List, Modal, ActivityIndicator, Toast} from '@ant-design/react-native';
+import _ from 'lodash';
 
 import SearchBar from '@/components/SearchBar';
 import styles from './style.css';
@@ -24,15 +25,19 @@ const AddCityModalContent = (props) => {
   }
 
   const findCities = (text) => {
-    setIsLoading(true)
-    // find cities that match the name
-    dispatch({
-      type: 'weather/fetchCitiesByName',
-      city: text
-    }).then((res)=>{
-      setCityResult(res)
-      setIsLoading(false)
-    })
+    if (!_.isEmpty(text) && text.length>2) {
+      setIsLoading(true)
+      // find cities that match the name
+      dispatch({
+        type: 'weather/fetchCitiesByName',
+        city: text
+      }).then((res)=>{
+        setCityResult(res)
+        setIsLoading(false)
+      })
+    } else {
+      Toast.fail('Invalid input');
+    }
   }
 
   const ResultSection = () => (
@@ -48,15 +53,19 @@ const AddCityModalContent = (props) => {
         const handleNewData = () => {
           // add another chosen city
           const newCity = {name, id}
-          reactotron.log('bbb', [...cities, newCity])
-          dispatch({
-            type: 'weather/setCities',
-            cities: [...cities, newCity]
-          });
-          dispatch({
-            type: 'weather/fetchSeveralCitiesWeather',
-          });
-          hideModal()
+          const alreadyIn = cities.some(city => city.name === name && city.id === id)
+          if (!alreadyIn) {
+            dispatch({
+              type: 'weather/setCities',
+              cities: [...cities, newCity]
+            });
+            dispatch({
+              type: 'weather/fetchSeveralCitiesWeather',
+            });
+            hideModal()
+          } else {
+            Toast.fail('Already exists');
+          }
         }
         return (
           <List.Item key={index} extra={id} arrow="empty" onPress={handleNewData}>
