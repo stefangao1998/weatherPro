@@ -1,21 +1,27 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
+import {connect} from 'umi';
 
+import config, {defaultCitiesWeather} from '@/config/common';
 import WeatherCell from '@/components/WeatherCell';
 import styles from './index.css';
 
 // display main weather info section
-const MainWeatherSection = () => {
-  const [weatherData, setWeatherData] = useState(defaultLocation)
+const MainWeatherSection = (props) => {
+  const {
+    weather,
+    dispatch
+  } = props
+  const {citiesWeather} = weather
   
   // map the weather cell based on the location data fetched 
   const MapWeatherData = () => (
-    weatherData.map((item, index)=>{
-      const {cityname, temperature} = item;
+    citiesWeather.map((item, index)=>{
+      const {name, main:{temp}} = item;
       return (
         <WeatherCell 
           key={index}
-          cityname={cityname}
-          temperature={temperature}
+          cityname={name}
+          temperature={temp}
         />
       )
     })
@@ -26,20 +32,7 @@ const MainWeatherSection = () => {
   )
 }
 
-// initial default location
-const defaultLocation = [
-  {
-    cityname: 'Sydney',
-    temperature: 23.12
-  },
-  {
-    cityname: 'Melbourne',
-    temperature: 20
-  },
-  {
-    cityname: 'Brisbane',
-    temperature: 30
-  },
-]
 
-export default MainWeatherSection;
+export default connect(({weather}) => ({
+  weather,
+}))(MainWeatherSection);

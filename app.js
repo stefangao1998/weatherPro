@@ -3,6 +3,7 @@ import {Linking, Platform} from 'react-native';
 import {persistStore, persistReducer} from 'redux-persist';
 import AsyncStorage from '@react-native-community/async-storage';
 import Loading from './components/Loading';
+import Reactotron from 'reactotron-react-native'
 
 export function getReactNavigationDefaultScreenOptions() {
   /**
@@ -99,3 +100,9 @@ export async function onReactNavigationStateChange(state) {
     await AsyncStorage.setItem(PERSISTENCE_KEY, JSON.stringify(state));
   }
 }
+
+Reactotron
+  .setAsyncStorageHandler(AsyncStorage) // AsyncStorage would either come from `react-native` or `@react-native-community/async-storage` depending on where you get it from
+  .configure() // controls connection & communication settings
+  .useReactNative() // add all built-in react native plugins
+  .connect() // let's connect!

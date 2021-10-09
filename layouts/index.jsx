@@ -1,12 +1,11 @@
 import React, {useLayoutEffect} from 'react';
-import {BackButton, connect} from 'umi';
+import {BackButton} from 'umi';
 
 const Layout = (props) => {
   const {
     children, 
     route, 
     navigation,
-    weather
   } = props;
 
   // toggle header shown
@@ -21,6 +20,4 @@ const Layout = (props) => {
   );
 }
 
-export default connect(({weather}) => ({
-  weather,
-}))(Layout);
+export default Layout
