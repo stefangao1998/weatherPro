@@ -44,7 +44,7 @@ NavigationBar.propTypes = {
 
 NavigationBar.defaultProps = {
   showBackbutton: true,
-  backButtonColor: 'black',
+  backButtonColor: 'white',
   height: config.navBarHeight
 };
 

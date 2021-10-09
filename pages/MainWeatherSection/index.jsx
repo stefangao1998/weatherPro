@@ -23,7 +23,7 @@ const MainWeatherSection = (props) => {
       const isShowingDetail = showingDetailIndex===index
       const goDetail = () => {
         console.log('navigation', navigation)
-        navigation.navigate('/fullScreenDetailPage')
+        navigation.navigate('/fullScreenDetailPage', {item})
       }
       return (
         <TouchableOpacity onPress={goDetail} disabled={isShowingDetail}>
