@@ -1,6 +1,18 @@
+import React, {
+  Dimensions,
+  Platform,
+  StyleSheet,
+  PixelRatio,
+} from 'react-native';
+
 export default config = {
   openWeatherServerUrl: 'http://api.openweathermap.org/data/2.5',
   openWeatherAPIKey: '2021e26970caae7292961a822671a30f',
+  navBarHeight:
+    Dimensions.get('window').width >= 375 &&
+    Dimensions.get('window').height >= 812
+      ? 87
+      : 60,
 };
 
 const defaultCities = [

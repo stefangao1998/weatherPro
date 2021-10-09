@@ -10,7 +10,7 @@ const Layout = (props) => {
 
   // toggle header shown
   useLayoutEffect(() => {
-    navigation.setOptions({headerShown: true});
+    navigation.setOptions({headerShown: false});
   }, [navigation, route.name]);
 
   return (

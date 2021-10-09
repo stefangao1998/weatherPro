@@ -1,6 +1,6 @@
 import React, {useState, useRef, useEffect} from 'react';
 import PropTypes from 'prop-types';
-import {View, ViewPropTypes, Text, Animated} from 'react-native';
+import {View, ViewPropTypes, Text, Dimensions} from 'react-native';
 import {IconFill} from '@ant-design/icons-react-native';
 
 import CityInfo from './components/CityInfo';
@@ -12,7 +12,7 @@ const WeatherCell = (props) => {
   const {
     isShowingDetail,
     cityname,
-    temperature
+    temperature,
   } = props;
 
   return (

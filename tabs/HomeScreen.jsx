@@ -16,9 +16,9 @@ const HomeScreen = (props) => {
     dispatch
   } = props
   
-  const {temperatureUnit, cities, citiesWeather} = weather;
 
   useEffect(()=>{
+    const {temperatureUnit, cities, citiesWeather} = weather;
     // set default initial temperature unit to celsius
     if (!temperatureUnit) {
       dispatch({
@@ -34,13 +34,9 @@ const HomeScreen = (props) => {
       });
     }
     // get default cities weather
-    if (_.isEmpty(citiesWeather)) {
-      const citiesArray = defaultCities.map((item, index)=> (item.id))
-      const cities = citiesArray.join()
-      dispatch({
-        type: 'weather/fetchSeveralCitiesWeather',
-      });
-    }
+    dispatch({
+      type: 'weather/fetchSeveralCitiesWeather',
+    });
     const interval = setInterval(() => {
       dispatch({
         type: 'weather/fetchSeveralCitiesWeather',
@@ -51,7 +47,7 @@ const HomeScreen = (props) => {
   
   return (
     <>
-      <ScrollView style={styles.scrollViewContainer}>
+      <ScrollView style={styles.scrollViewContainer} >
         <MainWeatherSection />
         <AddCitySection />
       </ScrollView>
