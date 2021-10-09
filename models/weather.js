@@ -1,11 +1,14 @@
 import {
   getOneCityWeatherByName,
   getOneCityWeatherByID,
+  findCitiesByName,
   getSeveralCitiesWeather
 } from '@/services/weather';
 import {convertJsonToCamelCase} from '@/utils/utils';
 import {Toast} from '@ant-design/react-native';
 import reactotron from 'reactotron-react-native';
+import config, {defaultCities} from '@/config/common';
+import {persistStore, persistReducer} from 'redux-persist';
 
 export default {
   namespace: 'weather',
@@ -16,6 +19,13 @@ export default {
     cities: [],                 // cities name and id json array
     citiesWeather: []           // cities weather json array
   },
+  subscriptions: {
+    setup({dispatch}) {
+      dispatch({
+        type: 'setCities',
+      });
+    },
+  },
   effects: {
     *fetchOneCityWeatherByName({city}, {call, put}) {
       const response = yield call(getOneCityWeatherByName, {
@@ -23,7 +33,6 @@ export default {
       });
       if (response.status===200) {
         const result = convertJsonToCamelCase(response.data);
-        reactotron.log('aaa', result)
         // yield put({
         //   type: 'setCities',
         //   cities: result,
@@ -33,13 +42,50 @@ export default {
         // Toast.fail('Fail');
       }
     },
-    *fetchSeveralCitiesWeather({cities}, {select, call, put}) {
+    *fetchOneCityWeatherByID({cityID}, {call, put}) {
+      const response = yield call(getOneCityWeatherByID, {
+        cityID,
+      });
+      if (response.status===200) {
+        const result = convertJsonToCamelCase(response.data);
+        // yield put({
+        //   type: 'setCities',
+        //   cities: result,
+        // });
+        // Toast.success('Success');
+      } else {
+        // Toast.fail('Fail');
+      }
+    },
+    *fetchCitiesByName({city}, {call, put}) {
+      const response = yield call(findCitiesByName, {
+        city,
+      });
+      if (response.status===200) {
+        const result = convertJsonToCamelCase(response.data);
+        // yield put({
+        //   type: 'setCities',
+        //   cities: result,
+        // });
+        // Toast.success('Success');
+        return result.list
+      } else {
+        // Toast.fail('Fail');
+      }
+      return true
+    },
+    *fetchSeveralCitiesWeather(_, {select, call, put}) {
+      const {cities} = yield select((state) => ({
+        cities: state.weather.cities,
+      }));
       yield put({
         type: 'setLoading',
         loading: true,
       });
+      const currCitiesArray = cities.map((item, index)=> (item.id))
+      const currCities = currCitiesArray.join()
       const response = yield call(getSeveralCitiesWeather, {
-        cities,
+        cities: currCities,
       });
       if (response.status===200) {
         const result = convertJsonToCamelCase(response.data);

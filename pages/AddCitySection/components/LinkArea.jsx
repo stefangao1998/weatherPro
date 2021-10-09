@@ -7,7 +7,7 @@ import styles from './style.css';
 // for linking the website
 const LinkArea = () => {
   const openLink = () => {
-    Linking.openURL('http://google.com')
+    Linking.openURL('https://github.com/stefangao1998/weatherPro')
   }
   return (
     <TouchableOpacity style={styles.linkButton} onPress={openLink}>

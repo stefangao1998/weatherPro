@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {
   View,
   TextInput,
@@ -6,6 +6,7 @@ import {
 } from "react-native";
 import {Icon} from '@ant-design/react-native';
 
+import CountryPicker from './CountryPicker';
 import styles from './style.css';
 
 /** contains input text, and icons */
@@ -13,13 +14,17 @@ const SearchBox = (props) => {
   const {
     searchText,
     setSearchText,
-    onSubmitEditing
+    onSubmitEditing,
+    chosenCountry,
+    setChosenCountry
   } = props;
   const colorScheme = Appearance.getColorScheme();
   const darkModeTextColor = colorScheme === 'dark' && 'black'
 
+
   return (
     <View style={styles.searchBox}>
+      <CountryPicker chosenCountry={chosenCountry} setChosenCountry={setChosenCountry} chosenCountry={chosenCountry} setChosenCountry={setChosenCountry}/>
       <Icon
         name={'search'}
         size={18}

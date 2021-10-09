@@ -76,7 +76,7 @@ export const dva = {
 
 const PERSISTENCE_KEY = 'com.weatherPro.NAVIGATION_STATE';
 
-// 返回之前本地持久化保存的状态，通常用于需要复苏应用、状态恢复的场景。
+// Returns the previously persistent local state. It is usually used in scenarios where applications need to be revived and state recovery is required.
 export async function getReactNavigationInitialState() {
   try {
     const initialUrl = await Linking.getInitialURL();
@@ -89,12 +89,12 @@ export async function getReactNavigationInitialState() {
   } catch (ignored) {}
 }
 
-// 自定义返回初始状态过程中显示的Loading，只有实现了 getReactNavigationInitialState 才会生效。
+// custom return to original state display in the process of Loading, only implements getReactNavigationInitialState will only take effect.
 export function getReactNavigationInitialIndicator() {
   return Loading;
 }
 
-// 订阅 react-navigation 状态变化通知，每次路由变化时，将导航状态持久化保存到手机本地。
+// subscribe react-navigation Notification of status change: The navigation state is persisted and saved to the mobile phone every time the route changes
 export async function onReactNavigationStateChange(state) {
   if (state) {
     await AsyncStorage.setItem(PERSISTENCE_KEY, JSON.stringify(state));

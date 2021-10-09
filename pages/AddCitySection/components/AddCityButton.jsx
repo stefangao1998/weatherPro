@@ -17,7 +17,7 @@ const AddCityButton = (props) => {
 
   const test = () => {
     dispatch({
-      type: 'weather/fetchSeveralCitiesWeather',
+      type: 'weather/fetchOneCityWeatherByName',
       city: 'Sydney'
     });
   }

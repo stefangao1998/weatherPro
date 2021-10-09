@@ -29,6 +29,14 @@ const styles = StyleSheet.create({
   addCityModalContent: {
     flexDirection: 'column',
     alignItems: 'center'
+  },
+  resultScrollView: { 
+    flex: 1, 
+    backgroundColor: '#f5f5f9', 
+    width: '100%'
+  },
+  singleResult: {
+    width: '100%',
   }
 });
 export default styles;

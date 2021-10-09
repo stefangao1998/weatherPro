@@ -4,7 +4,7 @@ const styles = StyleSheet.create({
   searchBox: {
     // flex: 7,
     height: 32,
-    width: '80%',
+    width: '77%',
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
@@ -33,14 +33,36 @@ const styles = StyleSheet.create({
     flex: 1
   },
   cancelStyle: {
-    width: '20%',
+    width: '17%',
     alignItems: 'center',
     justifyContent: 'center',
+    marginLeft: 5
   },
   cancelText: {
     fontSize: 17, 
     color: 'white'
-  }
+  },
+  pickerContainer: {
+    width: '20%',
+    height: 34,
+    alignItems: 'center',
+    justifyContent: 'center',
+    borderRadius: 5,
+    borderColor: 'grey',
+    borderWidth: 1
+  },
+  childrenContainer: {
+    height: 36,
+    paddingLeft: 15,
+    flexDirection: 'row',
+    alignItems: 'center',
+  },
+  childrenExtra: { 
+    textAlign: 'right', 
+    color: '#888', 
+    marginRight: 15 
+  },
+  children: { flex: 1 }
 });
 
 export default styles;

@@ -8,6 +8,13 @@ export async function getOneCityWeatherByName(params) {
   return await axios.get(url);
 }
 
+export async function findCitiesByName(params) {
+  const {city} = params
+  const url = `${config.openWeatherServerUrl}/find?q=${city}&units=metric&appid=${config.openWeatherAPIKey}`;
+
+  return await axios.get(url);
+}
+
 export async function getOneCityWeatherByID(params) {
   const {cityID} = params
   const url = `${config.openWeatherServerUrl}/weather?id=${cityID}&units=metric&appid=${config.openWeatherAPIKey}`;

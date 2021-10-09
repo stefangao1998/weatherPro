@@ -11,6 +11,8 @@ const SearchBar = (props) => {
   const {
     onCancel, 
     onSubmitEditing,
+    chosenCountry,
+    setChosenCountry
   } = props;
 
   const [searchText, setSearchText] = useState('');
@@ -19,7 +21,7 @@ const SearchBar = (props) => {
     <View style={styles.searchBarContainer}>
       <Text style={styles.header}>{'Enter city, id or location'}</Text>
       <View style={styles.searchBarSection}>
-        <SearchBox searchText={searchText} setSearchText={setSearchText} onSubmitEditing={onSubmitEditing}/>
+        <SearchBox searchText={searchText} setSearchText={setSearchText} onSubmitEditing={onSubmitEditing} chosenCountry={chosenCountry} setChosenCountry={setChosenCountry}/>
         <CancelSection onCancel={onCancel}/>
       </View>
     </View>
