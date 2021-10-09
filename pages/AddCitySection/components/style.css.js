@@ -26,5 +26,9 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     // flex: 1
   },
+  addCityModalContent: {
+    flexDirection: 'column',
+    alignItems: 'center'
+  }
 });
 export default styles;

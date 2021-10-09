@@ -10,9 +10,11 @@ import reactotron from 'reactotron-react-native';
 export default {
   namespace: 'weather',
   state: {
-    temperatureUnit: false,    // celsius, fahrenheit
-    cities: [],
-    citiesWeather: []
+    loading: false,             // bool for indicate if loading
+
+    temperatureUnit: false,     // celsius, fahrenheit
+    cities: [],                 // cities name and id json array
+    citiesWeather: []           // cities weather json array
   },
   effects: {
     *fetchOneCityWeatherByName({city}, {call, put}) {
@@ -26,12 +28,16 @@ export default {
         //   type: 'setCities',
         //   cities: result,
         // });
-        Toast.success('Success');
+        // Toast.success('Success');
       } else {
-        Toast.fail('Fail');
+        // Toast.fail('Fail');
       }
     },
     *fetchSeveralCitiesWeather({cities}, {select, call, put}) {
+      yield put({
+        type: 'setLoading',
+        loading: true,
+      });
       const response = yield call(getSeveralCitiesWeather, {
         cities,
       });
@@ -43,13 +49,24 @@ export default {
             citiesWeather: result.list,
           });
         }
-        Toast.success('Success');
+        // Toast.success('Success');
       } else {
-        Toast.fail('Fail');
+        // Toast.fail('Fail');
       }
+      yield put({
+        type: 'setLoading',
+        loading: false,
+      });
     },
   },
   reducers: {
+    // set if loading
+    setLoading(state, {loading}) {
+      return {
+        ...state,
+        loading,
+      };
+    },
     // set the temperature unit
     setTemperatureUnit(state, {temperatureUnit}) {
       return {
