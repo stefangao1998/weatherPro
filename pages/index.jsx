@@ -1,7 +1,9 @@
 import React from 'react';
 import {StatusBar} from 'react-native';
+
 import HomeScreen from '@/tabs/HomeScreen';
 
+// main index page
 const IndexPage = () => {
   return (
     <>
@@ -20,4 +22,4 @@ IndexPage.headerStyle = {
   backgroundColor: '#000000',
 };
 
-export default IndexPage;
+export default IndexPage

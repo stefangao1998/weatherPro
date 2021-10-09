@@ -1,7 +1,15 @@
 import React, {useLayoutEffect} from 'react';
-import {BackButton, connect, Redirect} from 'umi';
+import {BackButton, connect} from 'umi';
 
-const Layout = ({children, hasSignedIn, route, navigation}) => {
+const Layout = (props) => {
+  const {
+    children, 
+    route, 
+    navigation,
+    weather
+  } = props;
+
+  // toggle header shown
   useLayoutEffect(() => {
     navigation.setOptions({headerShown: true});
   }, [navigation, route.name]);
@@ -13,6 +21,6 @@ const Layout = ({children, hasSignedIn, route, navigation}) => {
   );
 }
 
-export default connect(({user: {hasSignedIn}}) => ({
-  hasSignedIn,
+export default connect(({weather}) => ({
+  weather,
 }))(Layout);
