@@ -2,10 +2,10 @@ import {StyleSheet} from 'react-native';
 
 const styles = StyleSheet.create({
   leftContainer: {
-    flexDirection: 'column',
-    alignItems: 'flex-start',
-    justifyContent: 'center',
-    backgroundColor: 'green',
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    // backgroundColor: 'green',
     flex: 7,
     height: 100
   },
@@ -15,11 +15,17 @@ const styles = StyleSheet.create({
     color: 'white',
     marginLeft: 10
   },
+  desText: {
+    fontWeight: 'bold',
+    fontSize: 20,
+    color: 'white',
+    marginRight: 10
+  },
   rightContainer: {
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
-    backgroundColor: 'blue',
+    // backgroundColor: 'blue',
     flex: 3,
     height: 100
   }, 
@@ -32,6 +38,10 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     color: 'white',
     fontSize: 20
+  },
+  desIcon: {
+    width: 66,
+    height: 58,
   },
 });
 export default styles;

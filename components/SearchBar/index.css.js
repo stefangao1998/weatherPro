@@ -7,7 +7,7 @@ const styles = StyleSheet.create({
     width: '100%',
     alignItems: 'center',
     justifyContent: 'center',
-    backgroundColor: 'grey',
+    backgroundColor: 'rgba(0,0,0,0.9)',
   },
   header: {
     marginTop: 5,

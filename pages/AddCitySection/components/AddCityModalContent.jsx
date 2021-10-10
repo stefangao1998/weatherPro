@@ -83,6 +83,7 @@ const AddCityModalContent = (props) => {
       visible={isShowingAddModal}
       animationType="slide-up"
       maskClosable
+      style={styles.modalContainer}
       closable
       onClose={hideModal}
     >

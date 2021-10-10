@@ -29,7 +29,7 @@ export function getReactNavigationDefaultScreenOptions() {
   // 也可以返回一个 thunk 函数
   return ({route}) => {
     // 单独为某个路由设置：
-    if (route.name === '/login') {
+    if (route.name === '/fullScreenDetailPage') {
       // 为 /pages/login.js 页面设置为从底部滑入
       return Platform.select({
         ios: {

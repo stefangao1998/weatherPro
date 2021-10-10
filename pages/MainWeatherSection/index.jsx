@@ -19,10 +19,10 @@ const MainWeatherSection = (props) => {
   // map the weather cell based on the location data fetched 
   const MapWeatherData = () => (
     citiesWeather.map((item, index)=>{
-      const {name, main:{temp}} = item;
+      const {name, main:{temp}, weather: itemWeather,} = item;
+      const {main, icon} = itemWeather[0]
       const isShowingDetail = showingDetailIndex===index
       const goDetail = () => {
-        console.log('navigation', navigation)
         navigation.navigate('/fullScreenDetailPage', {item})
       }
       return (
@@ -31,6 +31,8 @@ const MainWeatherSection = (props) => {
             key={index}
             cityname={name}
             temperature={temp}
+            des={main}
+            desIcon={icon}
           />
         </TouchableOpacity>
       )

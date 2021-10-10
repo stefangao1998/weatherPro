@@ -6,8 +6,8 @@ const styles = StyleSheet.create({
     alignItems: 'flex-end',
     justifyContent: 'space-around',
     width: '100%', 
-    marginBottom: 10,
-    backgroundColor: 'red', 
+    marginBottom: 5,
+    // backgroundColor: 'red', 
   },
   normalCell: {
     height: 100

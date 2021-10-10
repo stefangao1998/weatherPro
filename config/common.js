@@ -8,6 +8,7 @@ import React, {
 export default config = {
   openWeatherServerUrl: 'http://api.openweathermap.org/data/2.5',
   openWeatherAPIKey: '2021e26970caae7292961a822671a30f',
+  openWeatherIconUrl: 'http://openweathermap.org/img/wn/',
   navBarHeight:
     Dimensions.get('window').width >= 375 &&
     Dimensions.get('window').height >= 812

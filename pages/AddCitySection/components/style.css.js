@@ -32,11 +32,12 @@ const styles = StyleSheet.create({
   },
   resultScrollView: { 
     flex: 1, 
-    backgroundColor: '#f5f5f9', 
+    backgroundColor: 'rgba(0,0,0, 0.5)', 
     width: '100%'
   },
   singleResult: {
     width: '100%',
-  }
+  },
+  modalContainer: {backgroundColor: 'rgba(0,0,0,0.7)'}
 });
 export default styles;
