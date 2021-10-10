@@ -41,7 +41,7 @@ const HomeScreen = (props) => {
       dispatch({
         type: 'weather/fetchSeveralCitiesWeather',
       });
-    }, 30000);
+    }, 10000);
     return () => clearInterval(interval);
   }, [])
   
