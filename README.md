@@ -1,11 +1,15 @@
-## Packages: 
-- [DvaJS](https://dvajs.com/)
-- [@ant-design/react-native](https://rn.mobile.ant.design/index-cn)
-- [react-navigation](https://reactnavigation.org/)
+# Weather Pro
+![IMG_3572](https://user-images.githubusercontent.com/41606812/136698484-afa2bcc7-c8b8-42d2-99d4-d374462cf437.PNG)
+![IMG_3573](https://user-images.githubusercontent.com/41606812/136698487-3ce98f42-8d58-4e93-845c-129277e8ddce.PNG)
+![IMG_3574](https://user-images.githubusercontent.com/41606812/136698490-e5cf53ed-7cdf-4957-896a-2cca08ad66fd.PNG)
 
-**Setting up the development environment (https://reactnative.dev/docs/environment-setup)**
 
-## Start
+## Run via TestFlight
+
+Download Link: https://testflight.apple.com/join/835tbuix
+
+
+## Run via terminal
 
 github clone to local repository，use yarn download the dependencies：
 
@@ -42,3 +46,10 @@ or，run iOS app：
 ```npm
 yarn ios
 ```
+
+## Packages: 
+- [DvaJS](https://dvajs.com/)
+- [@ant-design/react-native](https://rn.mobile.ant.design/index-cn)
+- [react-navigation](https://reactnavigation.org/)
+
+**Setting up the development environment (https://reactnative.dev/docs/environment-setup)**
