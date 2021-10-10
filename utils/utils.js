@@ -1,5 +1,13 @@
 import _ from 'lodash';
 
+import THUNDERSTORM_IMAGE from '@/assets/thunder.jpg';
+import DRIZZLE_IMAGE from '@/assets/drizzle.jpeg';
+import RAIN_IMAGE from '@/assets/rain.jpg';
+import SNOW_IMAGE from '@/assets/snow.jpg';
+import CLEAR_IMAGE from '@/assets/clear.jpg';
+import CLOUDY_IMAGE from '@/assets/cloudy.jpg';
+import FOG_IMAGE from '@/assets/fog.jpeg';
+
 export const cToF = (celsius) => {
   var cTemp = celsius;
   var cToFahr = cTemp * 9 / 5 + 32;
@@ -65,3 +73,13 @@ export const convertCamelCaseToSnakeCase = (data) => {
 
   return convertedData;
 };
+
+export const getWeatherBackgroundImage = (des) => {
+  if (des==='Thunderstorm') return THUNDERSTORM_IMAGE
+  if (des==='Drizzle') return DRIZZLE_IMAGE
+  if (des==='Rain') return RAIN_IMAGE
+  if (des==='Snow') return SNOW_IMAGE
+  if (des==='Clear') return CLEAR_IMAGE
+  if (des==='Clouds') return CLOUDY_IMAGE
+  else return FOG_IMAGE  // Complex Atmosphere
+}

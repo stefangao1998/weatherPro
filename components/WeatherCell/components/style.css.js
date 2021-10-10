@@ -13,7 +13,7 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     fontSize: 30,
     color: 'white',
-    marginLeft: 10
+    marginLeft: 40
   },
   desText: {
     fontWeight: 'bold',

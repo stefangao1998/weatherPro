@@ -13,6 +13,9 @@ const styles = StyleSheet.create({
   detailPageContainer: {
     backgroundColor: 'yellow',
     marginTop: config.navBarHeight
+  },
+  landscapeView: {
+    flexDirection: 'row'
   }
 });
 export default styles;

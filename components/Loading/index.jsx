@@ -10,7 +10,7 @@ const Loading = (props) => {
   const {loading} = weather;
   if (!loading) return null
   return (
-    <ActivityIndicator size={'small'} style={styles.headerLoading}/>
+    <ActivityIndicator size={'small'} color={'white'} style={styles.headerLoading}/>
   );
 }
 

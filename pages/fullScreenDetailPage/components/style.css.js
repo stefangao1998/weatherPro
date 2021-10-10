@@ -2,7 +2,7 @@ import {StyleSheet} from 'react-native';
 
 const styles = StyleSheet.create({
   topBasicInfo: {
-    backgroundColor: 'blue',
+    // backgroundColor: 'blue',
     flexDirection: 'column',
     alignItems: 'center',
     justifyContent: 'center'
@@ -28,7 +28,7 @@ const styles = StyleSheet.create({
     fontSize: 15
   },
   midWeatherInfo: {
-    backgroundColor: 'red',
+    // backgroundColor: 'red',
     flexDirection: 'column',
     alignItems: 'center',
     justifyContent: 'flex-start',
@@ -46,7 +46,7 @@ const styles = StyleSheet.create({
   },
   basicLineTitle: {
     fontWeight: '500',
-    color: 'grey',
+    color: 'rgba(255,255,255,0.6)',
     fontSize: 14
   },
   basicLineText: {
@@ -59,6 +59,10 @@ const styles = StyleSheet.create({
     alignItems: 'flex-start',
     justifyContent: 'center',
     width: '40%',
-  }
+  },
+  desIcon: {
+    width: 66,
+    height: 58,
+  },
 });
 export default styles;
