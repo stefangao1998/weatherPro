@@ -103,6 +103,7 @@ export default {
         type: 'setLoading',
         loading: false,
       });
+      return true
     },
   },
   reducers: {

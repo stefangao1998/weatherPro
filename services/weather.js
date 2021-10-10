@@ -4,7 +4,7 @@ import axios from 'axios';
 export async function getOneCityWeatherByName(params) {
   const {city} = params
   const url = `${config.openWeatherServerUrl}/weather?q=${city}&units=metric&appid=${config.openWeatherAPIKey}`;
-
+  
   return await axios.get(url);
 }
 
