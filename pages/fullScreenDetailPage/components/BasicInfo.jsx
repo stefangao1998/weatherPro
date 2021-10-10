@@ -1,5 +1,5 @@
-import React from 'react';
-import {View, Text, Dimensions, Image} from 'react-native';
+import React, {useEffect, useRef, useState} from 'react';
+import {View, Text, Dimensions, Image, Animated} from 'react-native';
 import {connect} from 'umi';
 
 import config, {defaultCitiesWeather} from '@/config/common';
@@ -23,7 +23,19 @@ const BasicInfo = (props) => {
 
   const {temperatureUnit} = weather
   const isFahrenheit = temperatureUnit === 'fahrenheit'
-  
+
+  const fadeAnim = useRef(new Animated.Value(0)).current 
+
+  useEffect(() => {
+    Animated.timing(
+      fadeAnim,
+      {
+        toValue: 1,
+        duration: 1000,
+      }
+    ).start();
+  }, [fadeAnim])
+
   // showing corresponding temperature number based on the unit
   const handleShowingTemp = () => {
     const fahrTemp = cToF(temp)
@@ -38,14 +50,14 @@ const BasicInfo = (props) => {
   }
   
   return (
-    <View style={[styles.topBasicInfo, {width: getWidth(), height: getHeight()}]}>
+    <Animated.View style={[styles.topBasicInfo, {opacity: fadeAnim, width: getWidth(), height: getHeight()}]}>
       <Text style={styles.cityNameText}>{name}</Text>
       <Text style={styles.descriptionText}>{description}</Text>
       <Text style={styles.temperatureText}>{handleShowingTemp()}</Text>
       {/* <Text style={styles.temperatureUnitText}>{isFahrenheit ? '°F' : '°C'}</Text> */}
       <Text style={styles.coordText}>{`L:${Math.round(lon)}°, H:${Math.round(lat)}°`}</Text>
       <Image style={styles.desIcon} source={{uri: iconLink}}/>
-    </View>
+    </Animated.View>
   );
 };
 

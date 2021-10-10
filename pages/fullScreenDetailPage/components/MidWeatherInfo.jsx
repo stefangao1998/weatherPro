@@ -1,5 +1,5 @@
-import React from 'react';
-import {View, Text, Dimensions} from 'react-native';
+import React, {useRef, useEffect} from 'react';
+import {View, Text, Dimensions, Animated} from 'react-native';
 import {connect} from 'umi';
 import moment from 'moment';
 
@@ -35,6 +35,26 @@ const MidWeatherInfo = (props) => {
 
   const {temperatureUnit} = weather
   const isFahrenheit = temperatureUnit === 'fahrenheit'
+
+  const springAnimated = useRef(new Animated.Value(250)).current 
+  const animationStyles = {
+    transform: [
+      { translateY: springAnimated }
+    ]
+  };
+  useEffect(() => {
+    Animated.spring(
+      springAnimated,
+      {
+        toValue: 0,
+        duration: 2000,
+        friction: 5,
+        tension: 20
+      }
+    ).start();
+  }, [springAnimated])
+
+
   // showing corresponding temperature number based on the unit
   const handleShowingTemp = (temp) => {
     const fahrTemp = cToF(temp)
@@ -53,14 +73,14 @@ const MidWeatherInfo = (props) => {
   }
 
   return (
-    <View style={[styles.midWeatherInfo, {width: getWidth(), height: getHeight()}]}>
+    <Animated.View style={[styles.midWeatherInfo, animationStyles, { width: getWidth(), height: getHeight()}]}>
       <BasicLineWeather titleLeft={'SUNRISE'} textLeft={getTime(sunrise)} titleRight={'SUNSET'} textRight={getTime(sunset)}/>
       <BasicLineWeather titleLeft={'MIN TEMP'} textLeft={handleShowingTemp(tempMin)} titleRight={'MAX TEMP'} textRight={handleShowingTemp(tempMax)}/>
       <BasicLineWeather titleLeft={'COUNTRY'} textLeft={country} titleRight={'TIMEZONE'} textRight={`UTC+${moment(timezone*1000).format('HH')}h`}/>
       <BasicLineWeather titleLeft={'PRESSURE'} textLeft={`${pressure} hPa`} titleRight={'VISIBILITY'} textRight={`${visibility/1000} km`}/>
       <BasicLineWeather titleLeft={'HUMIDITY'} textLeft={`${humidity}%`} titleRight={'FEELS LIKE'} textRight={handleShowingTemp(feelsLike)}/>
       <BasicLineWeather titleLeft={'WIND SPEED'} textLeft={`${speed} m/s`} titleRight={'WIND DEG'} textRight={`${deg}°`}/>
-    </View>
+    </Animated.View>
   );
 };
 
