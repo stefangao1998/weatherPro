@@ -23,7 +23,7 @@ const MainWeatherSection = (props) => {
     // delete one chosen city
     const {name, id} = item
     const newCities = cities.filter(city => city.id !== id)
-    if (newCities) {
+    if (newCities&&newCities.length>0) {
       dispatch({
         type: 'weather/setCities',
         cities: [...newCities]
@@ -33,7 +33,9 @@ const MainWeatherSection = (props) => {
       }).then(()=>{
         Toast.success('Success');
       })
-    } 
+    } else {
+      Toast.fail('At least have one city');
+    }
   }
   
   // map the weather cell based on the location data fetched 
