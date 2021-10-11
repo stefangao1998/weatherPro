@@ -3,6 +3,10 @@
 ![IMG_3573](https://user-images.githubusercontent.com/41606812/136698487-3ce98f42-8d58-4e93-845c-129277e8ddce.PNG)
 ![IMG_3574](https://user-images.githubusercontent.com/41606812/136698490-e5cf53ed-7cdf-4957-896a-2cca08ad66fd.PNG)
 
+## Download App store version
+
+Download Link: https://apps.apple.com/au/app/weatherpro/id1589661415
+
 
 ## Run via TestFlight
 
